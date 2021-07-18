@@ -10,64 +10,67 @@ public class Cipher{
 
    public static void main(String[] args){
 	   
-	  //Creating random object
-	  Random random = new Random();
+      Random rand = new Random();    //Creating random object
 	  
-	  int rand = random.nextInt(10);
-	  //initialize the array object to 5
-      int [] digits = new int[5];
-      //Creating Scanner object
-      Scanner sc = new Scanner(System.in);
+      int key = rand.nextInt(10);   //random key 0 to 10
+	  
+      int [] digits = new int[5];    //initialize the array object to 5
+      
+      Scanner sc = new Scanner(System.in);    //Creating Scanner object
       
       System.out.println("CPSC 501");
       System.out.println("NAME: Bhavya Kella");
       System.out.println("PROGRAMMING ASSIGNMENT 1");
       System.out.println("Welcome to the Cipher program");
-      
-      //scanning numbers one by one and store them into array 
-      System.out.println("Please enetr 5 numbers beween 0 and 19");
+     
+      System.out.println("Please enetr 5 numbers beween 0 and 19"); //scanning numbers one by one and store them into array 
+	   
       System.out.print("1st number: ");
       digits[0] = sc.nextInt();
+	   
       System.out.print("2nd number: ");
       digits[1] = sc.nextInt();
+	   
       System.out.print("3rd number: ");
       digits[2] = sc.nextInt();
+	   
       System.out.print("4th number: ");
       digits[3] = sc.nextInt();
+	   
       System.out.print("5th number: ");
       digits[4] = sc.nextInt();
       
-      //use for loop to check for 0 less than and 19 greater than values.
-      int sum = 0;
-      for (int i = 0; i<5; i++){
+     
+      int total = 0;   //declare and initialize sum variable to 0
+      for (int i = 0; i<5; i++){   //use for loop to check for 0 less than and 19 greater than values.
     	  
-    	//if condition true then terminate the program  
-          if (digits[i] < 0 || digits[i] > 19){
+    	
+          if (digits[i] < 0 || digits[i] > 19){   //if condition true then terminate the program  
              System.out.println("Please read instructions and try again");
-             System.exit(1);
+             System.exit(1);   //terminate program if condition true
           } 
-          sum = sum + digits[i];
+          total = total + digits[i];
       }
       
-      //print sum of numbers
-      System.out.println("Total = " + sum);
       
-      //print random number
-      System.out.println("Your random key is " + rand);
+      System.out.println("Total = " + total);   //print sum of numbers
+      
+     
+      System.out.println("Your random key is " + key);   //print key 
     
-      // separating the digits
-      int first,last;
-      first = sum/10;
-      last = sum%10;
+      
+      int first,last;   //declare first and last variables
+      first = total/10;   // separating the digits  
+      last = total%10;
         
-      //Encrypting
-      first = first + rand;
-      last = last + rand;
+     
+      first = first + key;   //Encrypting
+      last = last + key;
       first = first%10;
       last = last%10;
         
-      //displaying Encrypted digits
-      System.out.println("The Encoded number is : "+first+last);
+     
+      System.out.println("The Encoded number is : "+first+last);   //combining and displaying Encrypted digits
         
       }
     
